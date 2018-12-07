@@ -1,7 +1,9 @@
 package org.truefit.framework.factory;
 
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.extern.slf4j.Slf4j;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -12,18 +14,18 @@ import org.truefit.framework.business.SystemUtility;
 import org.truefit.framework.propmanager.PropManager;
 
 import java.awt.*;
-import java.util.logging.Logger;
 
 
 /**
  * this is factory service for creating and getting webdriver if already created
+ *
  * @author eyadm@amazon.com
  */
 
 @Data
+@Slf4j
 public class DriverFactory {
 
-    private static final Logger log = Logger.getLogger(DriverFactory.class.getName());
     private static ThreadLocal<WebDriver> driver = new ThreadLocal<>();
 
     /**
@@ -47,7 +49,7 @@ public class DriverFactory {
                     case CHROME:
                         ChromeOptions chromeOptions = fillChromeArguments("chromedriver");
                         driver.set(new ChromeDriver(chromeOptions));
-                        driver.get().manage().window().setSize(new Dimension(width, height));
+                        driver.get().manage().window().maximize();
                         break;
                 }
             default:
@@ -59,16 +61,17 @@ public class DriverFactory {
 
     /**
      * this method fill the chrome driver options and capabilities
+     *
      * @param driverName the chrome driver name
      * @return chrome options filled with the intended values for selenium execution
      */
     private ChromeOptions fillChromeArguments(String driverName) {
         ChromeOptions options = new ChromeOptions();
-        options.addArguments("Solution-type");
-        options.addArguments("--start-maximized");
-        options.addArguments("--disable-web-security");
-        options.addArguments("--allow-running-insecure-content");
-        options.addArguments("--disable-popup-blocking");
+        options.addArguments("test-type");
+        options.addArguments("start-maximized");
+        options.addArguments("--enable-automation");
+        options.addArguments("test-type=browser");
+        options.addArguments("disable-infobars");
         options = SystemUtility.getChromeDriverPath(options, driverName);
         return options;
     }
@@ -118,9 +121,11 @@ public class DriverFactory {
      *
      * @author eyadm@amazon.com
      */
+    @AllArgsConstructor
     private enum Browser {
-        FIREFOX,
-        CHROME,
+        FIREFOX("firefox"),
+        CHROME("chrome");
+        String browserName;
     }
 
 }

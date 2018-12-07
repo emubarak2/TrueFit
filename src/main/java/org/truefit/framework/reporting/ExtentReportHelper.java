@@ -70,10 +70,10 @@ public class ExtentReportHelper {
         extentReports.close();
     }
 
-    /**
-     * this method generate running reports of type mkolisnk
-     */
-    public void generateMkolisnkReport() {
+//    /**
+//     * this method generate running reports of type mkolisnk
+//     */
+//    public void generateMkolisnkReport() {
 //        CucumberResultsOverview results = new CucumberResultsOverview();
 //        results.setOutputDirectory("target");
 //        results.setOutputName("cucumber-results");
@@ -83,5 +83,6 @@ public class ExtentReportHelper {
 //            results.execute();
 //        } catch(Exception exception) {
 //        }
-    }
+//    }
+
 }

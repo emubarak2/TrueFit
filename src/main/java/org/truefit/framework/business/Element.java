@@ -44,9 +44,6 @@ public class Element {
         String locatorValue;
         if (this.locatorName != null) {
             locatorValue = getLocatorValue(locatorName);
-            log.info("locatorName in element: " + locatorName);
-            log.info("localvalue in element : " + locatorValue);
-
             if (this.locatorName.contains(".byxpath")) {
                 return By.xpath(locatorValue);
             } else if (this.locatorName.contains(".bycss")) {
@@ -84,7 +81,6 @@ public class Element {
         String locatorValue;
         if (this.locatorName != null) {
             locatorValue = getLocatorValue(locatorName);
-            log.info("Looking for Element " + this.locatorName + " [" + locatorValue + "]");
 
             if (this.getWebElementBy() == null)
                 Assert.assertFalse("\"By\" used for this selector " + this.description + " is not supported. (supported: xpath, name, css, id, classname, text) ", true);
@@ -120,18 +116,15 @@ public class Element {
      * this to trigger the click event on the web element
      */
     public void clickElement() {
-        String locatorValue = getLocatorValue(locatorName);
         element = this.getWebElement();
         if (element != null) {
             if (this.JavaScriptCommand == null) {
-                log.info("Clicking On " + this.description + " With Locator value: " + locatorValue);
                 try {
                     element.click();
                 } catch (Exception error) {
                     Assert.fail("Error clicking on element: " + error.getMessage());
                 }
             } else {
-                log.info("Clicking On " + this.description + " With javascript command: " + this.JavaScriptCommand);
                 executeJavaScript(this.JavaScriptCommand);
             }
         } else {

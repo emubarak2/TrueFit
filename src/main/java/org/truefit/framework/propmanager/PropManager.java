@@ -3,6 +3,7 @@ package org.truefit.framework.propmanager;
 
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.io.FilenameUtils;
 
 import java.io.File;
@@ -21,9 +22,8 @@ import java.util.logging.Logger;
  */
 @NoArgsConstructor
 @AllArgsConstructor
+@Slf4j
 public class PropManager {
-
-    private static final Logger log = Logger.getLogger(PropManager.class.getName());
 
     private static PropManager instance = null;
     Map<String, Properties> propertiesValues = new HashMap<>();

@@ -36,7 +36,6 @@ public class SystemUtility {
             return options;
         } else {
             System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") + "/drivers/chrome/" + PropManager.getInstance().getProperty("truefit.system") + "/" + driverName);
-            options.setCapability("chrome.binary", System.getProperty("user.dir") + "/drivers/chrome/" + PropManager.getInstance().getProperty("truefit.system") + "/" + driverName);
             return options;
         }
     }
