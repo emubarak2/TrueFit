@@ -1,0 +1,47 @@
+@TrueFit_GoogleVerification
+Feature: google verification
+
+  @TestType-Smoke
+  Scenario Outline: Enter a search keyword in google search field And verify search page is displayed # src/test/resources/feature/web/TrueFit_GoogleVerification.feature:5
+    Given user open page using url :<url>
+    And user enter value :<search_keyword> in field :<search_field>
+    And user click on action with id :<id>
+    Then verify page that contains url is displayed :<search_url>
+
+    Examples: 
+
+  @TrueFit_GoogleVerification @TestType-Smoke
+  Scenario Outline: Enter a search keyword in google search field And verify search page is displayed # src/test/resources/feature/web/TrueFit_GoogleVerification.feature:13
+    Given user open page using url :http://www.google.com                                             # GenericStepDefs.openPage(String)
+    And user enter value :TrueFit.com in field :googleSearchField                                     # GenericStepDefs.setValue(String,String)
+    And user click on action with id :googleSearchAction                                              # GenericStepDefs.clickAction(String)
+    Then verify page that contains url is displayed :search?source=,=TrueFit.com                      # GenericStepDefs.verifyPageIsDisplayed(String)
+
+  @TestType-Smoke
+  Scenario Outline: Enter an empty search keyword in google search field and verify search page is not displayed # src/test/resources/feature/web/TrueFit_GoogleVerification.feature:16
+    Given user open page using url :<url>
+    And user click on submit for action with id :<id>
+    Then verify text not present on page :<elements>
+    Then verify page url doesn't contain :<url_text>
+
+    Examples: 
+
+  @TrueFit_GoogleVerification @TestType-Smoke
+  Scenario Outline: Enter an empty search keyword in google search field and verify search page is not displayed # src/test/resources/feature/web/TrueFit_GoogleVerification.feature:23
+    Given user open page using url :http://www.google.com                                                        # GenericStepDefs.openPage(String)
+    And user click on submit for action with id :googleSearchAction                                              # GenericStepDefs.clickActionSubmit(String)
+    Then verify text not present on page :googleImageText,googleVideoText                                        # GenericStepDefs.verifyPageElementsAreNotPresent(String)
+    Then verify page url doesn't contain :search?source=,=TureFit.com                                            # GenericStepDefs.verifyPageUrlDoesntContain(String)
+
+  @TestType-Smoke
+  Scenario Outline: Verify google home page elements  # src/test/resources/feature/web/TrueFit_GoogleVerification.feature:27
+    Given user open page using url :<url>
+    Then verify page elements are present :<elements>
+
+    #    Then close test driver
+    Examples: 
+
+  @TrueFit_GoogleVerification @TestType-Smoke
+  Scenario Outline: Verify google home page elements                                        # src/test/resources/feature/web/TrueFit_GoogleVerification.feature:33
+    Given user open page using url :http://www.google.com                                   # GenericStepDefs.openPage(String)
+    Then verify page elements are present :googleImage,googleSearchAction,googleSearchField # GenericStepDefs.verifyPageElement(String)

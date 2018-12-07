@@ -1,0 +1,293 @@
+[
+  {
+    "line": 2,
+    "elements": [
+      {
+        "line": 13,
+        "name": "Enter a search keyword in google search field And verify search page is displayed",
+        "description": "",
+        "id": "google-verification;enter-a-search-keyword-in-google-search-field-and-verify-search-page-is-displayed;;2",
+        "type": "scenario",
+        "keyword": "Scenario Outline",
+        "steps": [
+          {
+            "result": {
+              "duration": 7386822523,
+              "status": "passed"
+            },
+            "line": 6,
+            "name": "user open page using url :http://www.google.com",
+            "match": {
+              "arguments": [
+                {
+                  "val": "http://www.google.com",
+                  "offset": 26
+                }
+              ],
+              "location": "GenericStepDefs.openPage(String)"
+            },
+            "matchedColumns": [
+              0
+            ],
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 218900424,
+              "status": "passed"
+            },
+            "line": 7,
+            "name": "user enter value :TrueFit.com in field :googleSearchField",
+            "match": {
+              "arguments": [
+                {
+                  "val": "TrueFit.com",
+                  "offset": 18
+                },
+                {
+                  "val": "googleSearchField",
+                  "offset": 40
+                }
+              ],
+              "location": "GenericStepDefs.setValue(String,String)"
+            },
+            "matchedColumns": [
+              1,
+              2
+            ],
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 1897697168,
+              "status": "passed"
+            },
+            "line": 8,
+            "name": "user click on action with id :googleSearchAction",
+            "match": {
+              "arguments": [
+                {
+                  "val": "googleSearchAction",
+                  "offset": 30
+                }
+              ],
+              "location": "GenericStepDefs.clickAction(String)"
+            },
+            "matchedColumns": [
+              3
+            ],
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 9561678,
+              "status": "passed"
+            },
+            "line": 9,
+            "name": "verify page that contains url is displayed :search?source\u003d,\u003dTrueFit.com",
+            "match": {
+              "arguments": [
+                {
+                  "val": "search?source\u003d,\u003dTrueFit.com",
+                  "offset": 44
+                }
+              ],
+              "location": "GenericStepDefs.verifyPageIsDisplayed(String)"
+            },
+            "matchedColumns": [
+              4
+            ],
+            "keyword": "Then "
+          }
+        ],
+        "tags": [
+          {
+            "line": 1,
+            "name": "@TrueFit_GoogleVerification"
+          },
+          {
+            "line": 4,
+            "name": "@TestType-Smoke"
+          }
+        ]
+      },
+      {
+        "line": 23,
+        "name": "Enter an empty search keyword in google search field and verify search page is not displayed",
+        "description": "",
+        "id": "google-verification;enter-an-empty-search-keyword-in-google-search-field-and-verify-search-page-is-not-displayed;;2",
+        "type": "scenario",
+        "keyword": "Scenario Outline",
+        "steps": [
+          {
+            "result": {
+              "duration": 559935884,
+              "status": "passed"
+            },
+            "line": 17,
+            "name": "user open page using url :http://www.google.com",
+            "match": {
+              "arguments": [
+                {
+                  "val": "http://www.google.com",
+                  "offset": 26
+                }
+              ],
+              "location": "GenericStepDefs.openPage(String)"
+            },
+            "matchedColumns": [
+              0
+            ],
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 28280188,
+              "status": "passed"
+            },
+            "line": 18,
+            "name": "user click on submit for action with id :googleSearchAction",
+            "match": {
+              "arguments": [
+                {
+                  "val": "googleSearchAction",
+                  "offset": 41
+                }
+              ],
+              "location": "GenericStepDefs.clickActionSubmit(String)"
+            },
+            "matchedColumns": [
+              1
+            ],
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 16299605,
+              "status": "passed"
+            },
+            "line": 19,
+            "name": "verify text not present on page :googleImageText,googleVideoText",
+            "match": {
+              "arguments": [
+                {
+                  "val": "googleImageText,googleVideoText",
+                  "offset": 33
+                }
+              ],
+              "location": "GenericStepDefs.verifyPageElementsAreNotPresent(String)"
+            },
+            "matchedColumns": [
+              2
+            ],
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 6507139,
+              "status": "passed"
+            },
+            "line": 20,
+            "name": "verify page url doesn\u0027t contain :search?source\u003d,\u003dTureFit.com",
+            "match": {
+              "arguments": [
+                {
+                  "val": "search?source\u003d,\u003dTureFit.com",
+                  "offset": 33
+                }
+              ],
+              "location": "GenericStepDefs.verifyPageUrlDoesntContain(String)"
+            },
+            "matchedColumns": [
+              3
+            ],
+            "keyword": "Then "
+          }
+        ],
+        "tags": [
+          {
+            "line": 1,
+            "name": "@TrueFit_GoogleVerification"
+          },
+          {
+            "line": 15,
+            "name": "@TestType-Smoke"
+          }
+        ]
+      },
+      {
+        "line": 33,
+        "name": "Verify google home page elements",
+        "description": "",
+        "id": "google-verification;verify-google-home-page-elements;;2",
+        "type": "scenario",
+        "keyword": "Scenario Outline",
+        "steps": [
+          {
+            "result": {
+              "duration": 586117167,
+              "status": "passed"
+            },
+            "line": 28,
+            "name": "user open page using url :http://www.google.com",
+            "match": {
+              "arguments": [
+                {
+                  "val": "http://www.google.com",
+                  "offset": 26
+                }
+              ],
+              "location": "GenericStepDefs.openPage(String)"
+            },
+            "matchedColumns": [
+              0
+            ],
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 55654680,
+              "status": "passed"
+            },
+            "line": 29,
+            "name": "verify page elements are present :googleImage,googleSearchAction,googleSearchField",
+            "match": {
+              "arguments": [
+                {
+                  "val": "googleImage,googleSearchAction,googleSearchField",
+                  "offset": 34
+                }
+              ],
+              "location": "GenericStepDefs.verifyPageElement(String)"
+            },
+            "matchedColumns": [
+              1
+            ],
+            "keyword": "Then "
+          }
+        ],
+        "tags": [
+          {
+            "line": 1,
+            "name": "@TrueFit_GoogleVerification"
+          },
+          {
+            "line": 26,
+            "name": "@TestType-Smoke"
+          }
+        ]
+      }
+    ],
+    "name": "google verification",
+    "description": "",
+    "id": "google-verification",
+    "keyword": "Feature",
+    "uri": "src/test/resources/feature/web/TrueFit_GoogleVerification.feature",
+    "tags": [
+      {
+        "line": 1,
+        "name": "@TrueFit_GoogleVerification"
+      }
+    ]
+  }
+]
