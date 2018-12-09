@@ -4,15 +4,14 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.junit.Assert;
+import org.testng.asserts.SoftAssert;
 import org.truefit.automation.web.element.WebElements;
 import org.truefit.framework.business.Element;
 import org.truefit.framework.factory.DriverFactory;
 import org.truefit.framework.helper.PageUtility;
 
 import java.lang.reflect.Field;
-import java.util.List;
 import java.util.logging.Logger;
-import java.util.stream.Collectors;
 
 /**
  * this class has the generic actions that are needed to deal with web elements, by using java reflection
@@ -72,11 +71,13 @@ public class GenericPage {
     /**
      * this to verify that the page element is present
      *
-     * @param elements
+     * @param elementName
      */
-    public void verifyPageElementArePresent(List<String> elements) {
-        List<Element> elementList = elements.stream().map(e -> getElementObject(e)).collect(Collectors.toList());
-        elementList.stream().map(e -> e.verifyWebElement());
+    public void verifyPageElementArePresent(String elementName) {
+        Element element = getElementObject(elementName);
+        Assert.assertTrue(element.verifyWebElement());
+
+
     }
 
     /**

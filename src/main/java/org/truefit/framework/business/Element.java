@@ -99,16 +99,15 @@ public class Element {
      *
      * @return error message if the web element is not found
      */
-    public String verifyWebElement() {
+    public Boolean verifyWebElement() {
         String FailureMessage = "";
         this.failOnError = false;
         element = this.getWebElement();
-        if (element == null)
+        if (element == null) {
             FailureMessage = this.description + " is not found";
-        if (FailureMessage.isEmpty()) {
-            return FailureMessage;
+            return Boolean.FALSE;
         } else {
-            return FailureMessage + "\n";
+            return Boolean.TRUE;
         }
     }
 
@@ -242,7 +241,15 @@ public class Element {
      * @return true or false based on the presence of we element
      */
     public boolean verifyTextNotPresent() {
-        return verifyWebElement().contains("not found");
+        String FailureMessage = "";
+        this.failOnError = false;
+        element = this.getWebElement();
+        if (element == null) {
+            return Boolean.TRUE;
+        } else {
+            return Boolean.FALSE;
+        }
     }
+
 
 }

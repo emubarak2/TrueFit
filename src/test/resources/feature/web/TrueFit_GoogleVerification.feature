@@ -10,8 +10,8 @@ Feature: google verification
     Then verify page that contains url is displayed :<search_url>
 
     Examples:
-      |url|search_keyword|search_field|id|search_url|
-      |http://www.google.com|TrueFit.com|googleSearchField|googleSearchAction|search?source=,=TrueFit.com|
+      |url|elements|search_keyword|search_field|id|search_url|
+      |http://www.google.com|googleImageText,googleAllText,googleVideoText|TrueFit.com|googleSearchField|googleSearchAction|search?source=,=TrueFit.com|
 
   @TestType-Smoke
   Scenario Outline:Enter an empty search keyword in google search field and verify search page is not displayed
