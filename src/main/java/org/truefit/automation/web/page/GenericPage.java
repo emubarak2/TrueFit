@@ -145,4 +145,16 @@ public class GenericPage {
         driverFactory.getDriver().close();
     }
 
+
+    /**
+     * this method click on elelement if exits
+     * @param elementName
+     *
+     */
+    public void clickOnElementIfExits(String elementName) {
+        Element element = getElementObject(elementName);
+        element.clickElementIfExits();
+
+
+    }
 }

@@ -65,6 +65,10 @@ public class GenericStepDefs extends GenericPage {
         closeTestWebDriver();
     }
 
+    @And("^click element if exit : (.*)$")
+    public void clickLinkIfExits(String elementName) {
+        clickOnElementIfExits(elementName);
+    }
 
 }
 

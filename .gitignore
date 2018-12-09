@@ -4,3 +4,15 @@
 \.idea/workspace\.xml
 
 target/classes/META-INF/truefit3\.kotlin_module
+
+\.idea/libraries/
+
+target/cucumber-reports/
+
+target/classes/
+
+\.idea/
+
+target/test-classes/feature/web/
+
+target/test-classes/
