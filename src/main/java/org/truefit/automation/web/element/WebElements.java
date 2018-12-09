@@ -20,6 +20,7 @@ public class WebElements {
     public Element googleImageText;
     public Element googleVideoText;
     public Element googleCssElement;
+    public Element googleHomeEnglish;
 
     public WebElements() {
         googleSearchAction = new Element();
@@ -36,19 +37,24 @@ public class WebElements {
 
         googleAllText = new Element();
         googleAllText.setDescription("Google search page All text");
-        googleAllText.setLocatorName("truefit.gogole.searchpage.all.bytext");
+        googleAllText.setLocatorName("truefit.google.searchpage.all.bytext");
 
         googleImageText = new Element();
         googleImageText.setDescription("Google search page images text");
-        googleImageText.setLocatorName("truefit.gogole.searchpage.images.bytext");
+        googleImageText.setLocatorName("truefit.google.searchpage.images.bytext");
 
         googleVideoText = new Element();
         googleVideoText.setDescription("Google search page video text");
-        googleVideoText.setLocatorName("truefit.gogole.searchpage.video.bytext");
+        googleVideoText.setLocatorName("truefit.google.searchpage.video.bytext");
 
         googleCssElement = new Element();
         googleCssElement.setDescription("Google search page css field");
         googleCssElement.setLocatorName("truefit.google.homepage.cssstyle.byclass");
+
+        googleHomeEnglish = new Element();
+        googleHomeEnglish.setDescription("Google home page english language link");
+        googleHomeEnglish.setLocatorName("truefit.google.homepage.english.bytext");
+
     }
 
 }

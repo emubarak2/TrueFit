@@ -34,7 +34,7 @@ public class GenericStepDefs extends GenericPage {
     @And("^verify page elements are present :(.*)$")
     public void verifyPageElement(String elementsString) {
         List<String> elements = Arrays.asList(elementsString.split(","));
-        verifyPageElementArePresent(elements);
+        elements.stream().forEach(d -> verifyPageElementArePresent(d));
     }
 
     @And("^verify text not present on page :(.*)$")
@@ -65,6 +65,10 @@ public class GenericStepDefs extends GenericPage {
         closeTestWebDriver();
     }
 
+    @And("^click element if exit : (.*)$")
+    public void clickLinkIfExits(String elementName) {
+        clickOnElementIfExits(elementName);
+    }
 
 }
 

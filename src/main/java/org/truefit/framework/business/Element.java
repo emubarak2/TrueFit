@@ -49,7 +49,7 @@ public class Element {
             } else if (this.locatorName.contains(".bycss")) {
                 return By.cssSelector(locatorValue);
             } else if (this.locatorName.contains(".bytext")) {
-                return By.name(locatorValue);
+                return By.linkText(locatorValue);
             } else if (this.locatorName.contains(".byid")) {
                 return By.id(locatorValue);
             } else if (this.locatorName.contains(".bylinktext")) {
@@ -99,16 +99,16 @@ public class Element {
      *
      * @return error message if the web element is not found
      */
-    public String verifyWebElement() {
+    public Boolean verifyWebElement() {
         String FailureMessage = "";
         this.failOnError = false;
         element = this.getWebElement();
-        if (element == null)
+        if (element == null) {
             FailureMessage = this.description + " is not found";
-        if (FailureMessage.isEmpty()) {
-            return FailureMessage;
+            log.info("web element With Locator value: " + this.description + " is not found");
+            return Boolean.FALSE;
         } else {
-            return FailureMessage + "\n";
+            return Boolean.TRUE;
         }
     }
 
@@ -129,6 +129,16 @@ public class Element {
             }
         } else {
             Assert.assertFalse("The element " + this.description + " is not found, please check the selector", true);
+        }
+    }
+
+    /**
+     * this method click on the element if the element exits
+     */
+    public void clickElementIfExits() {
+        element = this.getWebElement();
+        if (element != null) {
+            element.click();
         }
     }
 
@@ -242,7 +252,16 @@ public class Element {
      * @return true or false based on the presence of we element
      */
     public boolean verifyTextNotPresent() {
-        return verifyWebElement().contains("not found");
+        String FailureMessage = "";
+        this.failOnError = false;
+        element = this.getWebElement();
+        if (element == null) {
+            return Boolean.TRUE;
+        } else {
+            log.info("The element " + this.description + " is found and should not be found ");
+            return Boolean.FALSE;
+        }
     }
+
 
 }
